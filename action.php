@@ -15,7 +15,7 @@ if (!in_array($action, ['create', 'update'], true)) { http_response_code(400); e
 $number = trim((string)($_POST['student_number'] ?? ''));
 $name = trim((string)($_POST['full_name'] ?? ''));
 $email = trim((string)($_POST['email'] ?? ''));
-$course = trim((string)($_POST['course'] ?? ''));
+$course = trim((string)($_POST['course'] ?? ''));\
 $year = filter_var($_POST['year_level'] ?? null, FILTER_VALIDATE_INT);
 if ($number === '' || $name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || $course === '' || $year === false || $year < 1 || $year > 6 || strlen($number) > 30 || strlen($name) > 120 || strlen($email) > 190 || strlen($course) > 100) {
     redirect('Please provide valid student details.', 'error');
